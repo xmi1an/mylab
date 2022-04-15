@@ -1,3 +1,4 @@
+<?php session_start();  ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,28 +34,32 @@
                     <li class="nav-item">
                         <a class="nav-link active" href="#home">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#howitworkds">How It Works?</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#client">Users</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Laboratory <i class="mdi mdi-chevron-down"></i>
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="nav-link" href="laboratory/labsignup.php">Signup</a></li>
-                            <li><a class="nav-link" href="laboratory/lablogin.php">Login</a></li>
-                            <li><a class="nav-link" href="laboratory/labhelp.php">Help</a></li>
-                        </ul>
-                    </li>
+
+                    <?php if (isset($_SESSION['labid'])) {
+                    ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="laboratory/labdashboard.php">Dashboard</a>
+                        </li>
+                    <?php } else { ?>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Laboratory <i class="mdi mdi-chevron-down"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="nav-link" href="laboratory/labsignup.php">Signup</a></li>
+                                <li><a class="nav-link" href="laboratory/lablogin.php">Login</a></li>
+                                <li><a class="nav-link" href="laboratory/labhelp.php">Help</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="new-user-testing.php">Test Now</a>
+                        </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="new-user-testing.php">Test</a>
-                    </li>
+
                 </ul>
                 <!--end navbar-nav-->
                 <ul class="list-inline mb-0 ps-lg-4 ms-2">
