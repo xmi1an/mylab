@@ -5,7 +5,6 @@ include_once('../includes/config.php');
 if (!isset($_SESSION['labid'])) {
     header('location:logout.php');
 } else {
-
     //Code for updation
     if (isset($_POST['update'])) {
         $pid = intval($_GET['pid']);

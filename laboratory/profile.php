@@ -75,7 +75,7 @@ if (!$_SESSION['labid']) {
             <!-- Content -->
             <div class="container-xxl flex-grow-1 container-p-y">
               <!-- Heading -->
-              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Heading</h4>
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Edit Profile</h4>
               <div class="row">
                 <form method="post" name="adminprofile">
                   <div class="row">
@@ -99,29 +99,29 @@ if (!$_SESSION['labid']) {
                           <div class="card-body">
                             <div class="form-group">
                               <label>Lab name</label>
-                              <input type="text" class="form-control" name="labname" value="<?php echo $row['labname']; ?>" required='true'>
+                              <input type="text" class="form-control mb-3" name="labname" value="<?php echo $row['labname']; ?>" required='true'>
                             </div>
 
                             <div class="form-group">
                               <label>Lab Address</label>
-                              <input type="text" class="form-control" name="labaddress" value="<?php echo $row['labaddress']; ?>">
+                              <input type="text" class="form-control mb-3" name="labaddress" value="<?php echo $row['labaddress']; ?>">
                             </div>
 
                             <div class="form-group">
                               <label>Lab Mobile</label>
-                              <input type="number" class="form-control" name="labmobile" value="<?php echo $row['labmobile']; ?>" required='true'>
+                              <input type="number" class="form-control mb-3" name="labmobile" value="<?php echo $row['labmobile']; ?>" required='true'>
                             </div>
                             <div class="form-group">
                               <label>Lab username</label>
-                              <input type="text" class="form-control" name="labusername" value="<?php echo $row['labusername']; ?>" required='true'>
+                              <input type="text" class="form-control mb-3" name="labusername" value="<?php echo $row['labusername']; ?>" required='true'>
                             </div>
                             <div class="form-group">
                               <label>Lab password</label>
-                              <input type="text" class="form-control" name="labpassword" value="<?php echo $row['labpassword']; ?>" required='true'>
+                              <input type="text" class="form-control mb-3" name="labpassword" value="<?php echo $row['labpassword']; ?>" required='true'>
                             </div>
                             <div class="form-group">
                               <label>Lab email</label>
-                              <input type="email" class="form-control" name="labemail" value="<?php echo $row['labemail']; ?>" required='true'>
+                              <input type="email" class="form-control mb-3" name="labemail" value="<?php echo $row['labemail']; ?>" required='true'>
                             </div>
 
 

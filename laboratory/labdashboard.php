@@ -35,6 +35,20 @@ if (!isset($_SESSION['labid'])) {
         <!-- Helpers -->
         <script src="../assets/vendor/js/helpers.js"></script>
         <script src="../assets/js/config.js"></script>
+        <style>
+            .card {
+                border-radius: 4px;
+                background: #fff;
+                box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+
+                cursor: pointer;
+            }
+
+            .card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+            }
+        </style>
     </head>
 
     <body>
