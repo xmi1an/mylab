@@ -4,7 +4,7 @@ include('../includes/config.php');
 
 if (isset($_POST['login'])) {
     $uname = $_POST['username'];
-    $Password = md5($_POST['inputpwd']);
+    $Password = $_POST['inputpwd'];
     $query = mysqli_query($con, "select ID from tbladmin where  AdminuserName='$uname' && Password='$Password' ");
     $ret = mysqli_fetch_array($query);
     if ($ret > 0) {

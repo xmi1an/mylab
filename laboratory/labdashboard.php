@@ -107,12 +107,12 @@ if (!isset($_SESSION['labid'])) {
                                         <a href="all-test.php">
                                             <div class="card text-center">
                                                 <div class="card-body">
-                                                    <div class="card-title mb-4">
+                                                    <div class="card-title mb-2">
                                                         <span><i class="fa-duotone fa-rectangle-history fa-3x"></i></span>
                                                     </div>
 
-                                                    <h5 class="badge bg-label-warning rounded-pill card-title mb-2">Total Test</h5>
-                                                    <h3 class="text-link fw-semibold d-block mb-1 "><?php echo $totaltest; ?></h3>
+                                                    <h6 class="badge bg-label-warning rounded-pill card-title mb-1">Total Test</h6>
+                                                    <h5 class="text-link fw-semibold d-block mb-1 "><?php echo $totaltest; ?></h5>
                                                 </div>
                                             </div>
                                         </a>
@@ -121,13 +121,13 @@ if (!isset($_SESSION['labid'])) {
                                     <div class="col-lg-3 mb-4 ">
                                         <a href="assigned-test.php">
                                             <div class="card text-center">
-                                                <div class="card-body">
-                                                    <div class="card-title mb-4">
+                                                <div class="card-body ">
+                                                    <div class="card-title mb-1">
                                                         <span><i class="fa-duotone fa-equals fa-3x"></i></span>
                                                     </div>
 
-                                                    <h5 class="card-title mb-2">Total Assigned</h5>
-                                                    <h3 class="fw-semibold d-block mb-1"><?php echo $totalassigned; ?></h3>
+                                                    <h6 class="card-title mb-1">Total Assigned</h6>
+                                                    <h5 class="fw-semibold d-block mb-1"><?php echo $totalassigned; ?></h5>
                                                 </div>
                                             </div>
                                         </a>
@@ -137,11 +137,11 @@ if (!isset($_SESSION['labid'])) {
                                         <a href="ontheway-samplecollection-test.php">
                                             <div class="card text-center">
                                                 <div class="card-body">
-                                                    <div class="card-title mb-4 ">
+                                                    <div class="card-title mb-2 ">
                                                         <span><i class="fa-duotone fa-road fa-3x"></i></span>
                                                     </div>
 
-                                                    <h5 class="card-title mb-2 ">On the way for sample collection</h4>
+                                                    <h6 class="card-title mb-2 text-wrap">On the way for sample collection</h4>
                                                         <h5 class="fw-semibold d-block mb-1"><?php echo $totalontheway; ?></h5>
                                                 </div>
                                             </div>
@@ -152,12 +152,12 @@ if (!isset($_SESSION['labid'])) {
                                         <a href="sample-collected-test.php">
                                             <div class="card text-center">
                                                 <div class="card-body">
-                                                    <div class="card-title mb-4">
+                                                    <div class="card-title mb-2">
                                                         <i class="fa-duotone fa-box-archive fa-3x"></i></span>
                                                     </div>
 
                                                     <h5 class="card-title mb-2">Sample Collected</h5>
-                                                    <h3 class="fw-semibold d-block mb-1"><?php echo $totalsamplecollected; ?></h3>
+                                                    <h5 class="fw-semibold d-block mb-1"><?php echo $totalsamplecollected; ?></h3>
                                                 </div>
                                             </div>
                                         </a>
@@ -167,12 +167,12 @@ if (!isset($_SESSION['labid'])) {
                                         <a href="samplesent-lab-test.php">
                                             <div class="card text-center">
                                                 <div class="card-body">
-                                                    <div class="card-title mb-4">
+                                                    <div class="card-title mb-2">
                                                         <span><i class="fa-duotone fa-envelope-circle-check fa-3x"></i></span>
                                                     </div>
 
                                                     <h5 class="card-title mb-2">Sent to Lab</h5>
-                                                    <h3 class="fw-semibold d-block mb-1"><?php echo $totalsenttolab; ?></h3>
+                                                    <h5 class="fw-semibold d-block mb-1"><?php echo $totalsenttolab; ?></h3>
                                                 </div>
                                             </div>
                                         </a>
@@ -182,12 +182,12 @@ if (!isset($_SESSION['labid'])) {
                                         <a href="reportdelivered-test.php">
                                             <div class="card text-center">
                                                 <div class="card-body">
-                                                    <div class="card-title mb-4">
+                                                    <div class="card-title mb-2">
                                                         <span><i class="fa-duotone fa-person-carry-box fa-3x"></i></span>
                                                     </div>
 
                                                     <h5 class="card-title mb-2">Report Delivered</h5>
-                                                    <h3 class="fw-semibold d-block mb-1"><?php echo $totaldelivered; ?></h3>
+                                                    <h5 class="fw-semibold d-block mb-1"><?php echo $totaldelivered; ?></h3>
                                                 </div>
                                             </div>
                                         </a>
@@ -197,12 +197,12 @@ if (!isset($_SESSION['labid'])) {
                                         <a href="all-test.php">
                                             <div class="card text-center">
                                                 <div class="card-body">
-                                                    <div class="card-title mb-4">
+                                                    <div class="card-title mb-2">
                                                         <span><i class="fa-duotone fa-users-medical fa-3x"></i></span>
                                                     </div>
 
                                                     <h5 class="card-title mb-2">Total Registered Patients</h5>
-                                                    <h3 class="fw-semibold d-block mb-1"><?php echo $totalpatients; ?></h3>
+                                                    <h5 class="fw-semibold d-block mb-1"><?php echo $totalpatients; ?></h3>
                                                 </div>
                                             </div>
                                         </a>
@@ -212,12 +212,12 @@ if (!isset($_SESSION['labid'])) {
                                         <a href="manage-phlebotomist.php">
                                             <div class="card text-center">
                                                 <div class="card-body">
-                                                    <div class="card-title mb-4">
+                                                    <div class="card-title mb-2">
                                                         <span><i class="fa-duotone fa-user-nurse fa-3x"></i></span>
                                                     </div>
 
                                                     <h5 class="card-title mb-2">Total Registered Phlebotomist</h5>
-                                                    <h3 class="fw-semibold d-block mb-1"><?php echo $totalphlebotomist; ?></h3>
+                                                    <h5 class="fw-semibold d-block mb-1"><?php echo $totalphlebotomist; ?></h3>
                                                 </div>
                                             </div>
                                         </a>
@@ -228,7 +228,7 @@ if (!isset($_SESSION['labid'])) {
                                             <a href="bwdates-report-ds.php">
                                                 <div class="card text-center">
                                                     <div class="card-body">
-                                                        <div class="card-title mb-4">
+                                                        <div class="card-title mb-2">
                                                             <span><i class="fa-duotone fa-gears fa-3x"></i></span>
                                                         </div>
                                                         <h5 class="card-title mb-2">Generate Report</h5>

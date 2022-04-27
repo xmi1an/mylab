@@ -51,8 +51,6 @@ if (isset($_POST['signup'])) {
     <!-- Helpers -->
     <script src="assets/vendor/js/helpers.js"></script>
     <script src="assets/js/config.js"></script>
-
-
 </head>
 
 <body>
@@ -71,7 +69,9 @@ if (isset($_POST['signup'])) {
                                 <span class="app-brand-logo demo">
 
                                 </span>
-                                <span class="app-brand-text demo text-body fw-bolder">MyLab</span>
+                                <!-- <span class="app-brand-text demo text-body fw-bolder">MyLab</span> -->
+                                <img src="../img\mainlogo2.png">
+
                             </a>
                         </div>
                         <!-- /Logo -->
@@ -139,7 +139,7 @@ if (isset($_POST['signup'])) {
 
                         <p class="text-center">
                             <span>Already have an account?</span>
-                            <a href="auth-login-basic.html">
+                            <a href="lablogin.php">
                                 <span>Sign in instead</span>
                             </a>
                         </p>
