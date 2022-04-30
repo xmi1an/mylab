@@ -203,16 +203,6 @@ https://cowinlabs.in/patient-search-report.php
                                                     <input type="text" class="form-control" name="fullname" id="basic-icon-default-fullname" placeholder="Jignesh Pravasi" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2">
                                                 </div>
                                             </div>
-                                            <!-- <div class="mb-3">
-                                                <label class="form-label" for="basic-icon-default-email">Email</label>
-                                                <div class="input-group input-group-merge">
-                                                    <span class="input-group-text"><i class="bx bx-envelope"></i></span>
-                                                    <input type="text" id="basic-icon-default-email" class="form-control" placeholder="jignesh.pravasi" aria-describedby="basic-icon-default-email2">
-                                                    <span id="basic-icon-default-email2" class="input-group-text">@gmail.com</span>
-                                                </div>
-                                                <div class="form-text">You can use letters, numbers &amp; periods</div>
-                                            </div> -->
-                                            <!-- Phone No -->
                                             <div class="mb-3">
                                                 <label class="form-label" for="basic-icon-default-phone">Phone No</label>
                                                 <div class="input-group input-group-merge">
@@ -266,14 +256,9 @@ https://cowinlabs.in/patient-search-report.php
                                                     </div>
                                                 </div>
                                             </div>
-
-
-                                            <button type="submit" class="btn btn-primary">Send</button>
-
                                     </div>
                                 </div>
                             </div>
-
                             <!-- Testing Information -->
                             <div class="col-xl">
                                 <div class="card mb-4">
@@ -291,14 +276,12 @@ https://cowinlabs.in/patient-search-report.php
                                                 <option value="CB-NAAT">CB-NAAT</option>
                                             </select>
                                         </div>
-
                                         <div class="mt-2 mb-3">
                                             <label for="html5-datetime-local-input" class="form-label">Time Slot for Test</label>
                                             <!-- <div class="col-md-10"> -->
                                             <input class="form-control" type="datetime-local" value="2021-06-18T12:30:00" id="html5-datetime-local-input">
                                             <!-- </div> -->
                                         </div>
-
                                         <div class="mb-3">
                                             <label class="form-label" for="basic-default-message">Message</label>
                                             <textarea id="basic-default-message" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?"></textarea>
@@ -314,19 +297,7 @@ https://cowinlabs.in/patient-search-report.php
                 <!-- / Content -->
 
                 <!-- Footer -->
-                <footer class="content-footer footer bg-footer-theme">
-                    <div class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                        <div class="mb-2 mb-md-0">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                            , made with ❤️ by
-                            <a href="." target="_blank" class="footer-link fw-bolder">MyLabs</a>
-                        </div>
-
-                    </div>
-                </footer>
+                <?php include('includes/footer.php') ?>
                 <!-- / Footer -->
 
                 <div class="content-backdrop fade"></div>

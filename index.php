@@ -10,6 +10,8 @@
     <!-- favicon -->
     <link rel="shortcut icon" href="img/favicon.ico" />
 
+    <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <!-- Bootstrap css-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Font Awesome -->
@@ -25,7 +27,7 @@
     <!-- START NAVBAR -->
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top sticky">
         <div class="container">
-            <a class="navbar-brand" href="index-3.html"><img src="img/mainlogo.png" alt=""></a>
+            <a class="navbar-brand" href="#"><img src="img/mainlogo.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="mdi mdi-menu text-muted"></i>
             </button>
@@ -454,6 +456,8 @@
                             </script> &copy; <a href="/" class="text-muted">Mylabs</a> <i class="fa-duotone fa-heart" style="color: red;"></i> Made in India
 
                         </p>
+                        <?php include('includes/counter.php'); ?>
+                        <span class="badge bg-label-primary mt-4">Total Visitors : <strong><?php echo $counter; ?> </strong></span>
                     </div>
                 </div>
                 <!--end row-->
@@ -463,27 +467,7 @@
         <!--end container-->
     </footer>
     <!-- END FOOTER -->
-    <!-- Modal -->
-    <div class="modal fade" id="presentationVideo" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content  bg-transparent border-0">
-                <div class="modal-body p-0">
-                    <div class="text-end">
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="ratio ratio-16x9">
-                        <video id="VisaChipCardVideo" class="video-box" controls>
-                            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-                <!--end modal-body-->
-            </div>
-            <!--end modal-content-->
-        </div>
-        <!--end modal-dialog-->
-    </div>
-    <!--end modal-->
+
     <!--start back-to-top-->
     <button onclick="topFunction()" id="back-to-top">
         <i class="mdi mdi-arrow-up"></i>

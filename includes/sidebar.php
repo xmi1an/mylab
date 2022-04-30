@@ -5,8 +5,7 @@
                     else : echo ('index.php');
                     endif; ?>" class="app-brand-link">
             </span>
-            <!-- <span class="app-brand-text demo menu-text fw-bolder ms-2">MyLab</span> -->
-            <img src="../img\mainlogo2.png">
+            <img src="./img\mainlogo2.png">
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-xl-none">
