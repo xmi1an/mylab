@@ -5,135 +5,80 @@
 <head>
     <meta charset="utf-8" />
     <title>My Lab</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="My Lab" />
     <!-- favicon -->
     <link rel="shortcut icon" href="img/favicon.ico" />
-
-    <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="My Lab" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <!-- Bootstrap css-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="vendor\fontawesome-free\css\all.min.css">
     <!-- Swiper Slider css -->
-    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" type="text/css" />
+    <!-- <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" type="text/css" /> -->
     <!-- Custom Css -->
     <link href="assets/css/LandSaystyle.css" rel="stylesheet" type="text/css" />
+    <!-- Page, Swiper CSS -->
+    <link rel="stylesheet" href="assets/vendor/libs/swiper/swiper.css" />
+    <link rel="stylesheet" href="assets/vendor/css/pages/ui-carousel.css" />
 
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="assets/css/demo.css" />
+
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="vendor/fontawesome-free/css/all.css">
+
+
+    <style>
+        body {
+            font-family: 'Ubuntu', sans-serif;
+        }
+    </style>
 </head>
 
 <body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="60">
     <!-- START NAVBAR -->
-    <nav id="navbar" class="navbar navbar-expand-lg fixed-top sticky">
-        <div class="container">
-            <a class="navbar-brand" href="#"><img src="img/mainlogo.png" alt=""></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="mdi mdi-menu text-muted"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navbar-navlist">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
-                    </li>
-
-                    <?php if (isset($_SESSION['labid'])) {
-                    ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="laboratory/labdashboard.php">Dashboard</a>
-                        </li>
-                    <?php } else { ?>
-
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Laboratory <i class="mdi mdi-chevron-down"></i>
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="nav-link" href="laboratory/labsignup.php">Signup</a></li>
-                                <li><a class="nav-link" href="laboratory/lablogin.php">Login</a></li>
-                                <li><a class="nav-link" href="laboratory/labhelp.php">Help</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="new-user-testing.php">Test Now</a>
-                        </li>
-                    <?php } ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-
-                </ul>
-                <!--end navbar-nav-->
-                <ul class="list-inline mb-0 ps-lg-4 ms-2">
-                    <li class="list-inline-item">
-                        <a href="#" class="primary-link"><i class="mdi mdi-facebook"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="primary-link"><i class="mdi mdi-twitter"></i></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="#" class="primary-link"><i class="mdi mdi-instagram"></i></a>
-                    </li>
-                </ul>
-            </div>
-            <!--end collapse-->
-        </div>
-        <!--end container-->
-    </nav>
+    <?php include('includes/navbarindex.php'); ?>
     <!-- END NAVBAR -->
-
     <!--Slider-->
     <section class="home-slider slide mt-5" id="home">
-        <div class="swiper-container homeslider">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-color: #00091a;background-size: cover;background-position: center;">
-                    <div class="bg-overlay"></div>
-                    <div class="container-sm">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-12">
-                                <div class="text-center text-white">
-                                    <h6 class="home-subtitle mb-4">Is your body feeling sick?</h6>
-                                    <h1>Get safe testing with My Lab</h1>
-                                    <p class="home-desc pt-3">Get a lab test done from the comfort of your home.</p>
-                                    <div class="mt-4 pt-3">
-                                        <a href="new-user-testing.php" class="btn btn-primary">Test Now</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end col-->
+        <div class="swiper-container swiper-container-initialized swiper-container-horizontal" id="swiper-with-pagination">
+            <div class="swiper-wrapper mt-4" id="swiper-wrapper-f73f22103271387e6" aria-live="polite" style="transition-duration: 0ms; transform: translate3d(-674px, 0px, 0px);">
+                <div class="swiper-slide swiper-slide-prev" style="background-image: url('img/IndoSeptember48.png');" role="group" aria-label="1 / 5">
+                    <div class="text-center mt-4">
+                        <h6 class="home-subtitle" style="color: white;">Is your body feeling sick?</h6>
+                        <h1 style="color: white;">Get safe testing with <strong>MyLab</strong></h1>
+                        <p class=" home-desc pt-3" style="color: white;">Get a lab test done from the comfort of your home.</p>
+                        <div class="mt-4 pt-3">
+                            <a href="new-user-testing.php" class="btn btn-primary">Test Now</a>
                         </div>
-                        <!--end row-->
                     </div>
-                    <!--end container-->
                 </div>
-                <!--end swiper-slide-->
-                <div class="swiper-slide" style="background-color: #00091a;background-size: cover;background-position: center;">
-                    <div class="bg-overlay"></div>
-                    <div class="container-sm">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-12">
-                                <div class="text-center text-white">
-                                    <h6 class="home-subtitle mb-4">Are You The Lab Manager? </h6>
-                                    <h1>Get more orders by signing up with us</h1>
-                                    <p class="home-desc pt-3"></p>
-                                    <div class="mt-4 pt-3">
-                                        <a href="#" class="btn btn-primary">Signup as Lab Manager</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end col-->
+                <!-- Slide 1 ends -->
+                <div class="swiper-slide swiper-slide-active" style="background-image: url('img/labslide.png');" role="group" aria-label="2 / 5">
+                    <div class="text-center mt-4">
+                        <h6 class="home-subtitle mb-4" style="color: white;">Are You The Lab Manager? </h6>
+                        <h1 style="color: white;">Get more orders by signing up with us</h1>
+                        <div class="mt-4 pt-3">
+                            <a href="laboratory/labsignup.php" class="btn btn-primary">Signup as Lab Manager</a>
                         </div>
-                        <!--end row-->
                     </div>
-                    <!--end container-->
                 </div>
-                <!--end swiper-slide-->
-
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-pagination"></div>
+            <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">
+                <span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span>
+                <span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 2"></span>
+            </div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
         </div>
+
         <!--end homeslider-->
     </section>
     <!--end Slider-->
@@ -228,136 +173,211 @@
     </section>
     <!-- END Process -->
 
-
-    <!-- START CTA -->
-    <!-- <section class="bg-cta" style="background-color:330000;">
-        <div class="bg-overlay"></div>
+    <!-- FAQ -->
+    <section class="section bg-link">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="text-center text-white">
-                        <h3 class="mb-3">Video Presentation</h3>
-                        <p>Start working with Landsay that can provide everything you need to generate awareness, drive
-                            traffic, connect.</p>
-                        <a href="#presentationVideo" class="play-btn mt-4" data-bs-toggle="modal">
-                            <i class="fa-duotone fa-play"></i>
-                        </a>
-                    </div>
-                </div>
+            <div class="text-center mb-5">
+                <h2> Frequently asked questions </h2>
             </div>
-        </div>
-    </section> -->
-    <!-- END CTA -->
-
-
-    <!-- START CLIENTS -->
-    <section class="section bg-client bg-light" id="client" style="background-image: url('img/bg.jpg');background-size: cover;">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-7">
-                    <div class="text-center mb-5">
-                        <h3>What's our users says</h3>
-
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <div class="swiper-container testimonialslider">
-                        <div class="swiper-wrapper pb-5">
-                            <div class="swiper-slide">
-                                <div class="testimonial-box text-center card border-0">
-                                    <div>
-                                        <div class="testi-img position-relative d-inline-block">
-                                            <img src="img/users/img1.jpg" alt="" class="img-fluid rounded-circle">
-                                            <div class="quote-icon">
-                                                <i class="fa-duotone fa-quote-right"></i>
-                                            </div>
-                                        </div>
-                                        <div class="mt-4">
-                                            <h6 class="mb-0 fs-17">Jignesh Pravasi</h6>
-                                            <p class="text-muted mb-0">Idar</p>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="text-muted mb-0">" In this pandemic situation they have come as a saviour. starting from their sample home collection to report submission, booking guidance to customer care promptness, they have excelled their peer competitors by a league. "</p>
-                                    </div>
-                                    <!--end card-body-->
-                                </div>
-                                <!--end testimonial-box-->
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-box text-center card border-0">
-                                    <div>
-                                        <div class="testi-img position-relative d-inline-block">
-                                            <img src="img/users/img2.jpg" alt="" class="img-fluid rounded-circle">
-                                            <div class="quote-icon">
-                                                <i class="fa-duotone fa-quote-right"></i>
-                                            </div>
-                                        </div>
-                                        <div class="mt-4">
-                                            <h6 class="mb-0 fs-17">Jignesh Vankar</h6>
-                                            <p class="text-muted mb-0">Himmatnagar</p>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="text-muted mb-0">" Prakash Manat From TLV Labs came to collect my blood sample. Extremely polite guy and did everything fast and properly. Highly recommend for all tests. "</p>
-                                    </div>
-                                    <!--end card-body-->
-                                </div>
-                                <!--end testimonial-box-->
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="testimonial-box text-center card border-0">
-                                    <div>
-                                        <div class="testi-img position-relative d-inline-block">
-                                            <img src="img/users/img4.jpg" alt="" class="img-fluid rounded-circle">
-                                            <div class="quote-icon">
-                                                <i class="mdi mdi-format-quote-open"></i>
-                                            </div>
-                                        </div>
-                                        <div class="mt-4">
-                                            <h6 class="mb-0 fs-17">Hitubha</h6>
-                                            <p class="text-muted mb-0">Berna</p>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="text-muted mb-0">" This is my first experience with My Lab and it was very nice and I highly impressed with the service. Sample collector boy came on time, very hygiene, took sample very nicely, polite speaking. "</p>
-                                    </div>
-                                    <!--end card-body-->
-                                </div>
-                                <!--end testimonial-box-->
+            <div class="row mt-4 justify-content-center">
+                <!-- Navigation -->
+                <div class="col-lg-3 col-md-4 col-12 mb-md-0 mb-3">
+                    <div class="d-flex justify-content-between flex-column mb-2 mb-md-0">
+                        <ul class="nav nav-align-left nav-pills flex-column">
+                            <li class="nav-item">
+                                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#takeappointment">
+                                    <i class="fa-duotone fa-calendar-check me-1" style="font-size: 1.25rem;"></i>
+                                    <span class="align-middle">Book Test</span>
+                                </button>
+                            </li>
+                            <li class="nav-item">
+                                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#delivery">
+                                    <i class="fa-duotone fa-vial-virus me-1" style="font-size: 1.50rem;"></i>
+                                    <span class="align-middle">Lab Manager</span>
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="d-none d-md-block">
+                            <div class="mt-5">
+                                <img src="img\Illustrations\sitting-girl-with-laptop-light.png" class="img-fluid w-px-200" alt="FAQ Image" data-app-light-img="illustrations/sitting-girl-with-laptop-light.png" data-app-dark-img="illustrations/sitting-girl-with-laptop-dark.png">
                             </div>
                         </div>
-                        <div class="swiper-pagination"></div>
                     </div>
                 </div>
-            </div>
-            <!--end col-->
-            <div class="row row-cols-md-5 row-cols-1 mt-4">
-                <div class="col mx-auto">
-                    <div class="client-img text-center mt-4">
-                        <img src="https://redcliffelabsbackend.s3.amazonaws.com/media/gallary-file/None/a0f82e2b-5cee-4694-a972-2514e9bd3694.svg" alt="img1" class="img-fluid">
-                    </div>
-                </div>
-                <!--end col-->
-                <div class="col mx-auto">
-                    <div class="client-img text-center mt-4">
-                        <img src="https://www.lifelinelaboratory.com/assets/images/logo.png" alt="img2" class="img-fluid">
-                    </div>
-                </div>
-                <!--end col-->
-                <div class="col mx-auto">
-                    <div class="client-img text-center mt-4">
-                        <img src="https://i.imgur.com/dTADAS1.png" alt="img3" class="img-fluid">
-                    </div>
-                </div>
+                <!-- /Navigation -->
 
+                <!-- FAQ's -->
+                <div class="col-lg-9 col-md-8 col-12">
+                    <div class="tab-content py-0">
+                        <!-- Take appointment Data -->
+                        <div class="tab-pane fade active show" id="takeappointment" role="tabpanel">
+                            <div class="d-flex mb-3 gap-3">
+                                <div>
+                                    <span class="badge bg-label-primary rounded-2">
+                                        <i class="fa-duotone fa-calendar-check fa-3x"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    <h4 class="mb-0">
+                                        <span class="align-middle">Book Test</span>
+                                    </h4>
+                                    <span>Get help with appointment</span>
+                                </div>
+                            </div>
+                            <div id="accordionAppointment" class="accordion">
+                                <div class="card accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#accordionAppointment-1" aria-controls="accordionAppointment-1">
+                                            Q1: How can I book Test appointment?
+                                        </button>
+                                    </h2>
+
+                                    <div id="accordionAppointment-1" class="accordion-collapse collapse show">
+                                        <div class="accordion-body">
+                                            If you are planning to book diagnostic tests with Redcliffe Labs, then it is quite a simple and smooth process. All you have to do is just call us and our well trained and patient-friendly representatives will book an appointment for you. Also, you can book the test online by visiting our website and as soon as we get your query within no time we will make sure to book the appointment for you.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionPayment-2" aria-controls="accordionPayment-2">
+                                            Q2: In how much time will I get my test reports?
+                                        </button>
+                                    </h2>
+                                    <div id="accordionPayment-2" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            MyLabs knows how important the timing is when it comes to health checkups. We make sure that reports are sent to you as soon as possible so that you can begin with the right treatment and medications on time. You will get your reports within 24 hours.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionPayment-3" aria-controls="accordionPayment-3">
+                                            Q3: Where can I see or get my test results?
+                                        </button>
+                                    </h2>
+                                    <div id="accordionPayment-3" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            You can receive your test results at your given email address or on your phone number and also on WhatsApp or you can <a href="patient-search-report.php"><strong>Check here</strong></a>. Redcliffe Labs makes sure to send precise and timely reports following the highest standards to maintain quality.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionPayment-4" aria-controls="accordionPayment-4">
+                                            Q4: Is Sample collector guy came to home for Test?
+                                        </button>
+                                    </h2>
+                                    <div id="accordionPayment-4" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            Yes, We will collect the sample and send the report to you.
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- /Take appointment Data -->
+
+                        <div class="tab-pane fade" id="delivery" role="tabpanel">
+                            <div class="d-flex mb-3 gap-3">
+                                <div>
+                                    <span class="badge bg-label-primary rounded-2">
+                                        <i class="fa-duotone fa-vial-virus fa-3x"></i>
+                                    </span>
+                                </div>
+                                <div>
+                                    <h4 class="mb-0">
+                                        <span class="align-middle">Lab Manager</span>
+                                    </h4>
+                                    <span>Get help with lab stuff</span>
+                                </div>
+                            </div>
+                            <div id="accordionDelivery" class="accordion">
+                                <div class="card accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#accordionDelivery-1" aria-controls="accordionDelivery-1">
+                                            Q1: How would you ship my order?
+                                        </button>
+                                    </h2>
+
+                                    <div id="accordionDelivery-1" class="accordion-collapse collapse show">
+                                        <div class="accordion-body">
+                                            For large products, we deliver your product via a third party
+                                            logistics company offering you the “room of choice” scheduled
+                                            delivery service. For small products, we offer free parcel
+                                            delivery.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionDelivery-2" aria-controls="accordionDelivery-2">
+                                            Q2: What is the delivery cost of my order?
+                                        </button>
+                                    </h2>
+                                    <div id="accordionDelivery-2" class="accordion-collapse collapse">
+                                        <div class="accordion-body">The cost of scheduled delivery is $69 or $99 per order, depending on the destination postal code. The parcel delivery is free.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionDelivery-4" aria-controls="accordionDelivery-4">
+                                            Q3: What to do if my product arrives damaged?
+                                        </button>
+                                    </h2>
+                                    <div id="accordionDelivery-4" class="accordion-collapse collapse">
+                                        <div class="accordion-body">
+                                            We will promptly replace any product that is damaged in transit.
+                                            Just contact our
+                                            <a href="javascript:void(0);">support team</a>, to notify us of the situation
+                                            within 48 hours of product arrival.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!--end row-->
         </div>
-        <!--end container-->
-    </section>
-    <!-- END CLIENTS -->
 
+        <div class="row mt-5">
+            <div class="col-12 text-center mb-4">
+                <div class="badge bg-label-primary">Question?</div>
+                <h4 class="my-2">You still have a question?</h4>
+                <p>If you can't find question in our FAQ, you can contact us. We'll answer you shortly!</p>
+            </div>
+        </div>
+        <div class="row text-center justify-content-center gap-sm-0 gap-3">
+            <div class="col-sm-6">
+                <div class=" py-3 rounded bg-light text-center">
+                    <span class="badge bg-label-primary rounded-2 my-3">
+                        <i class="bx bx-phone bx-sm"></i>
+                    </span>
+                    <h4 class="mb-2"><a class="h4" href="tel:+(810)25482568">+91 9876543210</a></h4>
+                    <p>We are always happy to help</p>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class=" py-3 rounded bg-light text-center">
+                    <span class="badge bg-label-primary rounded-2 my-3">
+                        <i class="bx bx-envelope bx-sm"></i>
+                    </span>
+                    <h4 class="mb-2"><a class="h4" href="mailto:help@help.com">help@mylab.com</a></h4>
+                    <p>Best way to get a quick answer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /FAQ's -->
 
     <!--start contact-->
     <section class="section bg-light" id="contact">
@@ -366,8 +386,6 @@
                 <div class="col-lg-6">
                     <div class="text-center mb-5">
                         <h3>Contact Us</h3>
-                        <!-- <p class="text-muted mt-2">It is a long established fact that a reader will be of a page when
-                            established fact looking at its layout.</p> -->
                     </div>
                 </div>
             </div>
@@ -427,67 +445,23 @@
         <!--end container-->
     </section>
     <!--end contact-->
+
     <!-- START FOOTER -->
-    <footer class="bg-dark section">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center">
-                        <ul class="list-inline social-list mb-0">
-                            <li class="list-inline-item"><a href="#" class="social-icon footer-link"><i class="fa-brands fa-facebook-f"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="social-icon footer-link"><i class="fa-brands fa-twitter"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="social-icon footer-link"><i class="fa-brands fa-instagram"></i></a></li>
-
-                        </ul>
-                        <!--end social-->
-                    </div>
-                    <div class="footer-terms">
-                        <ul class="mb-0 list-inline text-center mt-4">
-                            <li class="list-inline-item"><a href="#" class="footer-link">Terms & Condition</a></li>
-                            <li class="list-inline-item"><a href="#" class="footer-link">Privacy Policy</a></li>
-                            <li class="list-inline-item"><a href="#" class="footer-link">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <!--end footer-terms-->
-                    <div class="mt-4 pt-2 text-center">
-                        <p class="text-white-50 mb-0">
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script> &copy; <a href="/" class="text-muted">Mylabs</a> <i class="fa-duotone fa-heart" style="color: red;"></i> Made in India
-
-                        </p>
-                        <?php include('includes/counter.php'); ?>
-                        <span class="badge bg-label-primary mt-4">Total Visitors : <strong><?php echo $counter; ?> </strong></span>
-                    </div>
-                </div>
-                <!--end row-->
-            </div>
-            <!--end row-->
-        </div>
-        <!--end container-->
-    </footer>
+    <?php include('includes/footer4index.php')  ?>
     <!-- END FOOTER -->
-
     <!--start back-to-top-->
-    <button onclick="topFunction()" id="back-to-top">
-        <i class="mdi mdi-arrow-up"></i>
-    </button>
-    <!--end back-to-top-->
 
-    <!-- Bootstrap Bundale js -->
+    <!-- Bootstrap bundle js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <!-- Swiper Slider js -->
-    <script src="js/swiper-bundle.min.js"></script>
 
-    <!-- Contact Js -->
-    <script src="js/contact.js"></script>
-
-    <!-- Index-init Js -->
-    <script src="js/index.init.js"></script>
-
-    <!-- App js -->
-    <script src="js/app.js"></script>
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="assets/vendor/libs/jquery/jquery.js"></script>
+    <script src="assets/vendor/libs/popper/popper.js"></script>
+    <script src="assets/vendor/js/menu.js"></script>
+    <script src="assets/vendor/libs/swiper/swiper.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/ui-carousel.js"></script>
 </body>
 
 </html>

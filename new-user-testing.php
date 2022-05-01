@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
     $address = $_POST['address'];
     $state = $_POST['state'];
     $testtype = $_POST['testtype'];
-    $timeslot = $_POST['birthdaytime'];
+    $timeslot = $_POST['timeslot'];
     $orderno = mt_rand(100000000, 999999999);
 
     $query = "insert into tblpatients(city,selected_lab,selected_lab_id,FullName,MobileNumber,DateOfBirth,GovtIssuedId,GovtIssuedIdNo,FullAddress,State) values('$labcity','$selected_lab','$selected_lab_id','$fname','$mnumber','$dob','$govtid','$govtidnumber','$address','$state');";
@@ -206,8 +206,10 @@ https://cowinlabs.in/patient-search-report.php
                                             <div class="mb-3">
                                                 <label class="form-label" for="basic-icon-default-phone">Phone No</label>
                                                 <div class="input-group input-group-merge">
-                                                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="fa-duotone fa-phone"></i></span>
-                                                    <input type="text" id="basic-icon-default-phone" name="mobilenumber" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2">
+                                                    <!-- <span id="basic-icon-default-phone2" class="input-group-text"><i class="fa-duotone fa-phone"></i></span> -->
+                                                    <!-- <input type="text" id="basic-icon-default-phone" name="mobilenumber" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2"> -->
+                                                    <span class="input-group-text">IN (+91) </span>
+                                                    <input type="text" name="mobilenumber" id="phone-number-mask" class="form-control phone-number-mask" placeholder="9016353333">
                                                 </div>
                                             </div>
                                             <!-- DOB -->
@@ -243,7 +245,8 @@ https://cowinlabs.in/patient-search-report.php
                                                 <label class="form-label" for="basic-icon-default-message">Address</label>
                                                 <div class="input-group input-group-merge">
                                                     <span id="basic-icon-default-message2" class="input-group-text"><i class="fa-duotone fa-location-dot"></i></span>
-                                                    <textarea name="address" id="basic-icon-default-message" class="form-control" placeholder="21, Andhri Nagri, Bhoot Mahel ke Pi6e.." aria-describedby="basic-icon-default-message2"></textarea>
+                                                    <!-- <textarea name="address" id="basic-icon-default-message" class="form-control" placeholder="21, Andhri Nagri, Bhoot Mahel ke Pi6e.." aria-describedby="basic-icon-default-message2"></textarea> -->
+                                                    <textarea id="autosize-demo" rows="3" class="form-control" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 85px;"></textarea>
                                                 </div>
                                             </div>
                                             <!-- State -->
@@ -279,7 +282,7 @@ https://cowinlabs.in/patient-search-report.php
                                         <div class="mt-2 mb-3">
                                             <label for="html5-datetime-local-input" class="form-label">Time Slot for Test</label>
                                             <!-- <div class="col-md-10"> -->
-                                            <input class="form-control" type="datetime-local" value="2021-06-18T12:30:00" id="html5-datetime-local-input">
+                                            <input class="form-control" type="datetime-local" value="2021-06-18T12:30:00" name="timeslot" id="html5-datetime-local-input">
                                             <!-- </div> -->
                                         </div>
                                         <div class="mb-3">
@@ -318,6 +321,8 @@ https://cowinlabs.in/patient-search-report.php
     <script src="assets/vendor/libs/popper/popper.js"></script>
     <script src="assets/vendor/js/bootstrap.js"></script>
     <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="assets/vendor/libs/bootstrap-datepicker.js"></script>
+    <script src="assets/vendor/libs/pickr.js"></script>
 
     <script src="assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
