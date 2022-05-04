@@ -113,7 +113,7 @@ if (!isset($_SESSION['labid'])) {
                                                                         <i class="bx bx-dots-vertical-rounded"></i>
                                                                     </button>
                                                                     <div class="dropdown-menu">
-                                                                        <a class="dropdown-item" href="jedit-phlebotomist.php?pid=<?php echo $row['id']; ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
+                                                                        <a class="dropdown-item" href="edit-phlebotomist.php?pid=<?php echo $row['id']; ?>"><i class="bx bx-edit-alt me-1"></i> Edit</a>
                                                                         <a class="dropdown-item" onclick="return confirm('Do you really want to delete this record?');" href="manage-phlebotomist.php?pid=<?php echo $row['id']; ?>&action=delete"><i class="bx bx-trash me-1"></i> Delete</a>
                                                                     </div>
                                                                 </div>

@@ -1,14 +1,43 @@
 <?php
 session_start();
-include_once('includes/config.php');
 error_reporting(0);
-// include_once('includes/config.php');
+//DB conncetion
+include_once('includes/config.php');
 require __DIR__ . '/vendor/autoload.php';
 
-// use Twilio\Rest\Client;
+use Twilio\Rest\Client;
 
-// Send SMS Code for New Registration Test.
-$smsbody =  "
+if (isset($_POST['submit'])) {
+    //getting post values
+    $labcity = $_POST['city'];
+    $selected_lab = $_POST['selected_lab'];
+    $selected_lab_id = $_POST['selected_lab_id'];
+    $fname = $_POST['fullname'];
+    $mnumber = $_POST['mobilenumber'];
+    $dob = $_POST['dob'];
+    $govtid = $_POST['govtissuedid'];
+    $govtidnumber = $_POST['govtidnumber'];
+    $address = $_POST['address'];
+    $state = $_POST['state'];
+    $testtype = $_POST['testtype'];
+    $timeslot = $_POST['timeslot'];
+    $orderno = mt_rand(100000000, 999999999);
+
+    $query = "insert into tblpatients(city,selected_lab,selected_lab_id,FullName,MobileNumber,DateOfBirth,GovtIssuedId,GovtIssuedIdNo,FullAddress,State) values('$labcity','$selected_lab','$selected_lab_id','$fname','$mnumber','$dob','$govtid','$govtidnumber','$address','$state');";
+
+    $query .= "insert into tbltestrecord(selected_lab_id,PatientMobileNumber,TestType,TestTimeSlot,OrderNumber) values('$selected_lab_id','$mnumber','$testtype','$timeslot','$orderno');";
+
+    $result = mysqli_multi_query($con, $query);
+    if ($result) {
+        echo '<script>alert("Your test request submitted successfully. Order number is "+"' . $orderno . '")</script>';
+        echo "<script>window.location.href='new-user-testing.php'</script>";
+    } else {
+        echo "<script>alert('Something went wrong. Please try again.');</script>";
+        echo "<script>window.location.href='new-user-testing.php'</script>";
+    }
+
+    // Send SMS Code for New Registration Test.
+    $smsbody =  "
 Hey {$fname}! This SMS From My Lab 💉.
 
 We see that you made an appointment for your {$testtype} Test on {$timeslot}.
@@ -20,25 +49,25 @@ Till Keep yourself safe by staying at home 😷.
 Check Your Test Status Here
 https://cowinlabs.in/patient-search-report.php
     ";
-// $msgbody =
-//     // Your Account SID and Auth Token from twilio.com/console
-//     $sid = 'ACc495d0b8f0577c4253f409cb805ac88b';
-// $token = '7cbed27097ba7514fc579a46a349aea2';
-// $client = new Client($sid, $token);
+    // $msgbody =
+    //     // Your Account SID and Auth Token from twilio.com/console
+    //     $sid = 'ACc495d0b8f0577c4253f409cb805ac88b';
+    // $token = '7cbed27097ba7514fc579a46a349aea2';
+    // $client = new Client($sid, $token);
 
-// // Use the client to do fun stuff like send text messages!
-// $client->messages->create(
-//     // the number you'd like to send the message to
-//     '+919016353443',
-//     [
-//         // A Twilio phone number you purchased at twilio.com/console
-//         'from' => '+12316245678',
-//         // the body of the text message you'd like to send
-//         'body' => "$smsbody"
-//     ]
-// );
-// End of Send SMS Code for New Registration Test.
-// }
+    // // Use the client to do fun stuff like send text messages!
+    // $client->messages->create(
+    //     // the number you'd like to send the message to
+    //     '+919016353443',
+    //     [
+    //         // A Twilio phone number you purchased at twilio.com/console
+    //         'from' => '+12316245678',
+    //         // the body of the text message you'd like to send
+    //         'body' => "$smsbody"
+    //     ]
+    // );
+    // End of Send SMS Code for New Registration Test.
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -102,7 +131,7 @@ https://cowinlabs.in/patient-search-report.php
                                     </div>
                                     <script type="text/javascript">
                                         function findlab() {
-                                            var city_name = $("#city_dropdown option:selected").text();
+                                            var city_name = $("#city-dropdown option:selected").text();
                                             $.ajax({
                                                 url: "labbycity.php",
                                                 type: "POST",
@@ -111,13 +140,13 @@ https://cowinlabs.in/patient-search-report.php
                                                 },
                                                 cache: false,
                                                 success: function(result) {
-                                                    $("#lab_dropdown").html(result);
+                                                    $("#lab-dropdown").html(result);
                                                 }
                                             });
                                         }
 
                                         function getLabid() {
-                                            var labname = $("#lab_dropdown option:selected").text();
+                                            var labname = $("#lab-dropdown option:selected").text();
                                             $.ajax({
                                                 url: "getlabid.php",
                                                 type: "POST",
@@ -138,7 +167,7 @@ https://cowinlabs.in/patient-search-report.php
                                                 <div class="input-group input-group-merge">
                                                     <span id="basic-icon-default-fullname2" class="input-group-text"><i class="fa-duotone fa-city"></i></span>
                                                     <!-- Select City -->
-                                                    <select onchange="findlab()" id="city_dropdown" name="city" class="form-select" aria-label="Default select example">
+                                                    <select onchange="findlab()" id="city-dropdown" name="city" class="form-select" aria-label="Default select example">
                                                         <option value="">Select City</option>
                                                         <?php
                                                         $result = mysqli_query($con, "select labcity from labmaster");
@@ -159,7 +188,7 @@ https://cowinlabs.in/patient-search-report.php
                                                     <label>Select Lab</label>
                                                     <div class="input-group input-group-merge">
                                                         <span id="basic-icon-default-fullname2" class="input-group-text"><i class="fa-duotone fa-flask"></i></span>
-                                                        <select name="selected_lab" onchange="getLabid()" id="lab_dropdown" class="form-select" aria-label="Default select example">
+                                                        <select name="selected_lab" onchange="getLabid()" id="lab-dropdown" class="form-select" aria-label="Default select example">
                                                             <option selected>Select Lab</option>
                                                         </select>
                                                     </div>
@@ -170,31 +199,43 @@ https://cowinlabs.in/patient-search-report.php
                                             <div class="mb-3">
                                                 <label class="form-label" for="basic-icon-default-fullname">Full Name</label>
                                                 <div class="input-group input-group-merge">
-                                                    <span class="input-group-text"><i class="fa-duotone fa-user"></i></span>
-                                                    <input type="text" class="form-control" name="fullname" id="fullname" placeholder="Jignesh Pravasi" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2">
+                                                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="fa-duotone fa-user"></i></span>
+                                                    <input type="text" class="form-control" name="fullname" id="basic-icon-default-fullname" placeholder="Jignesh Pravasi" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2">
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <label class="form-label" for="basic-icon-default-phone">Phone No</label>
                                                 <div class="input-group input-group-merge">
+                                                    <!-- <span id="basic-icon-default-phone2" class="input-group-text"><i class="fa-duotone fa-phone"></i></span> -->
+                                                    <!-- <input type="text" id="basic-icon-default-phone" name="mobilenumber" class="form-control phone-mask" placeholder="658 799 8941" aria-label="658 799 8941" aria-describedby="basic-icon-default-phone2"> -->
                                                     <span class="input-group-text">IN (+91) </span>
-                                                    <input type="text" name="mobilenumber" id="mobilenumber" class="form-control phone-number-mask" placeholder="9016353333">
+                                                    <input type="text" name="mobilenumber" id="phone-number-mask" class="form-control phone-number-mask" placeholder="9016353333">
                                                 </div>
                                             </div>
                                             <!-- DOB -->
                                             <div class="mb-3">
-                                                <label for="dob" class="col-md-2 col-form-label">DOB</label>
+                                                <label for="html5-date-input" class="col-md-2 col-form-label">DOB</label>
                                                 <div class="input-group input-group-merge">
                                                     <span id="basic-icon-default-fullname2" class="input-group-text"><i class="fa-duotone fa-cake-candles"></i></span>
-                                                    <input class="form-control" type="date" value="2021-06-18" id="dob" name="dob">
+                                                    <input class="form-control" type="date" value="2021-06-18" id="html5-date-input" name="dob">
                                                 </div>
                                             </div>
                                             <div class="mb-3">
                                                 <div class="form-group">
-                                                    <label class="form-label">Aadhar Card Number</label>
+                                                    <label class="form-label">Any Govt Issued ID</label>
                                                     <div class="input-group input-group-merge">
-                                                        <span class="input-group-text"><i class="fa-duotone fa-id-card"></i></span>
-                                                        <input type="text" class="form-control" id="aadharid" name="aadharid" placeholder="1234567891234564" required="true">
+                                                        <span id="basic-icon-default-fullname2" class="input-group-text"><i class="fa-duotone fa-id-card"></i></span>
+                                                        <input type="text" class="form-control" id="govtissuedid" name="govtissuedid" placeholder="Pancard / Driving License / Voter id / any other" required="true">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <div class="form-group">
+                                                    <label class="form-label">Govt Issued ID Number</label>
+                                                    <div class="input-group input-group-merge">
+                                                        <span id="basic-icon-default-fullname2" class="input-group-text"><i class="fa-duotone fa-id-card-clip"></i></span>
+                                                        <input type="text" class="form-control" id="govtidnumber" name="govtidnumber" placeholder="Enter Goevernment Issued ID Number" required="true">
                                                     </div>
                                                 </div>
                                             </div>
@@ -203,9 +244,9 @@ https://cowinlabs.in/patient-search-report.php
                                             <div class="mb-3">
                                                 <label class="form-label" for="basic-icon-default-message">Address</label>
                                                 <div class="input-group input-group-merge">
-                                                    <span class="input-group-text"><i class="fa-duotone fa-location-dot"></i></span>
-
-                                                    <textarea id="address" name="address" rows="3" class="form-control" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 85px;"></textarea>
+                                                    <span id="basic-icon-default-message2" class="input-group-text"><i class="fa-duotone fa-location-dot"></i></span>
+                                                    <!-- <textarea name="address" id="basic-icon-default-message" class="form-control" placeholder="21, Andhri Nagri, Bhoot Mahel ke Pi6e.." aria-describedby="basic-icon-default-message2"></textarea> -->
+                                                    <textarea id="autosize-demo" rows="3" class="form-control" style="overflow: hidden; overflow-wrap: break-word; resize: none; height: 85px;"></textarea>
                                                 </div>
                                             </div>
                                             <!-- State -->
@@ -213,7 +254,7 @@ https://cowinlabs.in/patient-search-report.php
                                                 <div class="form-group">
                                                     <label>State</label>
                                                     <div class="input-group input-group-merge">
-                                                        <span class="input-group-text"><i class="fa-duotone fa-location-dot"></i></span>
+                                                        <span id="basic-icon-default-message2" class="input-group-text"><i class="fa-duotone fa-location-dot"></i></span>
                                                         <input type="text" class="form-control" id="state" name="state" placeholder="Enter your State Here" required="true">
                                                     </div>
                                                 </div>
@@ -230,8 +271,8 @@ https://cowinlabs.in/patient-search-report.php
                                     <div class="card-body">
                                         <!--? Select Lab -->
                                         <div class="mt-2 mb-3">
-                                            <label for="testtype" class="form-label">Test Type</label>
-                                            <select name="testtype" id="testtype" class="form-select form-select">
+                                            <label for="defaultSelect" class="form-label">Test Type</label>
+                                            <select name="testtype" id="defaultSelect" class="form-select form-select">
                                                 <option value="">Select</option>
                                                 <option value="Antigen">Antigen</option>
                                                 <option value="RT-PCR">RT-PCR</option>
@@ -241,14 +282,14 @@ https://cowinlabs.in/patient-search-report.php
                                         <div class="mt-2 mb-3">
                                             <label for="html5-datetime-local-input" class="form-label">Time Slot for Test</label>
                                             <!-- <div class="col-md-10"> -->
-                                            <input class="form-control" type="datetime-local" value="2021-06-18T12:30:00" id="timeslot">
+                                            <input class="form-control" type="datetime-local" value="2021-06-18T12:30:00" name="timeslot" id="html5-datetime-local-input">
                                             <!-- </div> -->
                                         </div>
                                         <div class="mb-3">
-                                            <label class="form-label" for="message">Message</label>
-                                            <textarea id="message" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?"></textarea>
+                                            <label class="form-label" for="basic-default-message">Message</label>
+                                            <textarea id="basic-default-message" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?"></textarea>
                                         </div>
-                                        <button type="submit" name="submit" id="submitdata" class="btn btn-primary">Take Appointment</button>
+                                        <button type="submit" name="submit" class="btn btn-primary">Take Appointment</button>
                                         </form>
                                     </div>
                                 </div>
@@ -272,6 +313,8 @@ https://cowinlabs.in/patient-search-report.php
     <!-- Overlay -->
     <div class="layout-overlay layout-menu-toggle"></div>
     </div>
+
+
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="assets/vendor/libs/jquery/jquery.js"></script>
@@ -280,110 +323,16 @@ https://cowinlabs.in/patient-search-report.php
     <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="assets/vendor/libs/bootstrap-datepicker.js"></script>
     <script src="assets/vendor/libs/pickr.js"></script>
-    <script src="assets/js/sweetalert2.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.all.min.js"></script>
+
     <script src="assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
 
+    <!-- Page JS -->
+    <script src="assets/js/dashboards-analytics.js"></script>
 
-    <script>
-        $(document).ready(function() {
-            $('#submitdata').on('click', function(e) {
-                e.preventDefault();
-                var spinner = `<div class="spinner-border spinner-border-sm text-white" role="status">
-            <span class="visually-hidden">Loading...</span>
-          </div>`;
-                var city_dropdown = $('#city_dropdown').val();
-                var lab_dropdown = $('#lab_dropdown').val();
-                var hdnlabid = $('#hdnlabid').val();
-                var fullname = $('#fullname').val();
-                var mobilenumber = $('#mobilenumber').val();
-                var dob = $('#dob').val();
-                var aadharid = $('#aadharid').val();
-                var address = $('#address').val();
-                var state = $('#state').val();
-                var testtype = $('#testtype').val();
-                var timeslot = $('#timeslot').val();
-                var message = $('#message').val();
-                console.log(hdnlabid);
-
-                // Validation form
-                if (city_dropdown == '') {
-                    Swal.fire({
-                        title: "Oops...",
-                        text: "Please select your city",
-                        icon: "error"
-                    });
-                    return false;
-                } else if (lab_dropdown == '') {
-                    swal.fire("Oops...", "Please select your lab", "error");
-                    return false;
-                } else if (fullname == '') {
-                    swal.fire("Oops...", "Please enter your Full Name", "error");
-                    return false;
-                } else if (mobilenumber == '') {
-                    swal.fire("Oops...", "Please enter your Mobile Number", "error");
-                    return false;
-                } else if (dob == '') {
-                    swal.fire("Oops...", "Please enter your date of birth", "error");
-                    return false;
-                } else if (aadharid == '') {
-                    swal.fire("Oops...", "Please enter your aadhar id", "error");
-                    return false;
-                } else if (address == '') {
-                    swal.fire("Oops...", "Please enter your address", "error");
-                    return false;
-                } else if (state == '') {
-                    swal.fire("Oops...", "Please enter your state", "error");
-                    return false;
-                } else if (testtype == '') {
-                    swal.fire("Oops...", "Please select your test type", "error");
-                    return false;
-                } else if (timeslot == '') {
-                    swal.fire("Oops...", "Please select your time slot", "error");
-                    return false;
-                } else {
-                    $.ajax({
-                        url: 'ajax/appointment.php',
-                        type: 'POST',
-                        data: {
-                            city_dropdown: city_dropdown,
-                            lab_dropdown: lab_dropdown,
-                            hdnlabid: hdnlabid,
-                            fullname: fullname,
-                            mobilenumber: mobilenumber,
-                            dob: dob,
-                            aadharid: aadharid,
-                            address: address,
-                            state: state,
-                            testtype: testtype,
-                            timeslot: timeslot,
-                            message: message
-                        },
-                        beforeSend: function() {
-                            $('#submitdata').html(spinner);
-                        },
-                        cache: false,
-                        success: function() {
-                            setTimeout(function() {
-                                Swal.fire({
-                                    title: 'Success!',
-                                    text: 'Your appointment has been successfully booked.',
-                                    icon: 'success',
-                                    button: 'OK'
-                                });
-                                $('#submitdata').html('Take Appointment');
-                            }, 1000);
-                        }
-                    });
-                }
-            });
-        });
-    </script>
 </body>
-
 
 </html>

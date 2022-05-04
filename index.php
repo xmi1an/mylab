@@ -1,6 +1,10 @@
-<?php session_start();  ?>
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
+<script>
+
+</script>
 
 <head>
     <meta charset="utf-8" />
@@ -15,26 +19,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <!-- Bootstrap css-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="vendor\fontawesome-free\css\all.min.css">
-    <!-- Swiper Slider css -->
-    <!-- <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" type="text/css" /> -->
     <!-- Custom Css -->
-    <link href="assets/css/LandSaystyle.css" rel="stylesheet" type="text/css" />
     <!-- Page, Swiper CSS -->
     <link rel="stylesheet" href="assets/vendor/libs/swiper/swiper.css" />
     <link rel="stylesheet" href="assets/vendor/css/pages/ui-carousel.css" />
-
     <!-- Core CSS -->
     <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="assets/css/demo.css" />
-
     <!-- Fontawesome -->
     <link rel="stylesheet" href="vendor/fontawesome-free/css/all.css">
-
+    <link rel="stylesheet" href="assets/vendor/libs/sweetalert2/sweetalert2.css" />
 
     <style>
         body {
@@ -43,21 +42,23 @@
     </style>
 </head>
 
-<body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="60">
+<body data-bs-spy="scroll" data-bs-target="#navbar-navlist" data-bs-offset="60" style="background-image: url('img\Sprinkle.svg');">
+
+
     <!-- START NAVBAR -->
     <?php include('includes/navbarindex.php'); ?>
     <!-- END NAVBAR -->
     <!--Slider-->
-    <section class="home-slider slide mt-5" id="home">
+    <section class="home-slider slide" id="home">
         <div class="swiper-container swiper-container-initialized swiper-container-horizontal" id="swiper-with-pagination">
             <div class="swiper-wrapper mt-4" id="swiper-wrapper-f73f22103271387e6" aria-live="polite" style="transition-duration: 0ms; transform: translate3d(-674px, 0px, 0px);">
                 <div class="swiper-slide swiper-slide-prev" style="background-image: url('img/IndoSeptember48.png');" role="group" aria-label="1 / 5">
                     <div class="text-center mt-4">
-                        <h6 class="home-subtitle" style="color: white;">Is your body feeling sick?</h6>
-                        <h1 style="color: white;">Get safe testing with <strong>MyLab</strong></h1>
+                        <h1 class="display-1 mb-3" style="color: white;">Is your body feeling sick?</h1>
+                        <h1 class="display-4 mb-0" style="color: white;">Get safe testing with <strong>MyLab</strong></h1>
                         <p class=" home-desc pt-3" style="color: white;">Get a lab test done from the comfort of your home.</p>
                         <div class="mt-4 pt-3">
-                            <a href="new-user-testing.php" class="btn btn-primary">Test Now</a>
+                            <a href="new-user-testing.php" class="btn btn-lg btn-primary">Test Now</a>
                         </div>
                     </div>
                 </div>
@@ -78,11 +79,9 @@
             </div>
             <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
         </div>
-
         <!--end homeslider-->
     </section>
     <!--end Slider-->
-
     <!-- How it Works -->
     <section class="section bg-light" id="howitworkds">
         <div class="container">
@@ -172,7 +171,6 @@
         <!--end container-->
     </section>
     <!-- END Process -->
-
     <!-- FAQ -->
     <section class="section bg-link">
         <div class="container">
@@ -186,7 +184,7 @@
                         <ul class="nav nav-align-left nav-pills flex-column">
                             <li class="nav-item">
                                 <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#takeappointment">
-                                    <i class="fa-duotone fa-calendar-check me-1" style="font-size: 1.25rem;"></i>
+                                    <i class="fa-duotone fa-calendar-check me-3" style="font-size: 1.25rem;"></i>
                                     <span class="align-middle">Book Test</span>
                                 </button>
                             </li>
@@ -260,7 +258,7 @@
                                     </h2>
                                     <div id="accordionPayment-3" class="accordion-collapse collapse">
                                         <div class="accordion-body">
-                                            You can receive your test results at your given email address or on your phone number and also on WhatsApp or you can <a href="patient-search-report.php"><strong>Check here</strong></a>. Redcliffe Labs makes sure to send precise and timely reports following the highest standards to maintain quality.
+                                            You can receive your test results at your given email address or on your phone number and also on WhatsApp or you can <a href="patient-search-report.php"><strong>check here</strong></a>. MyLabs makes sure to send precise and timely reports following the highest standards to maintain quality.
                                         </div>
                                     </div>
                                 </div>
@@ -378,19 +376,14 @@
         </div>
     </section>
     <!-- /FAQ's -->
-
     <!--start contact-->
-    <section class="section bg-light" id="contact">
+    <section class="section bg-link mt-4 mb-4">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="text-center mb-5">
-                        <h3>Contact Us</h3>
-                    </div>
-                </div>
+            <div class="text-center mb-5">
+                <h2> Contact MyLab </h2>
             </div>
             <div class="row">
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <div class="contact-details mb-4 mb-lg-0">
                         <p class="mb-3"><i class="fa-duotone fa-at"></i> <span class="fw-medium mx-1">helpmylab@gmail.com</span></p>
                         <p class="mb-3"><i class="fa-duotone fa-browser"></i> <span class="fw-medium mx-1">www.mylab.in</span></p>
@@ -401,59 +394,63 @@
                     <!--end contact-details-->
                 </div>
                 <!--end col-->
-                <div class="col-lg-7">
-                    <form method="post" onsubmit="return validateForm()" class="contact-form" name="myForm" id="myForm">
-                        <span id="error-msg"></span>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="position-relative mb-3">
-                                    <span class="input-group-text"><i class="fa-duotone fa-input-text"></i></i></span>
-                                    <input name="name" id="name" type="text" class="form-control" placeholder="Enter your name*">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="position-relative mb-3">
-                                    <span class="input-group-text"><i class="fa-duotone fa-at"></i></span>
-                                    <input name="email" id="email" type="email" class="form-control" placeholder="Enter your email*">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="position-relative mb-3">
-                                    <span class="input-group-text"><i class="fa-duotone fa-file"></i></span>
-                                    <input name="subject" id="subject" type="text" class="form-control" placeholder="Subject">
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="position-relative mb-3">
-                                    <span class="input-group-text align-items-start"><i class="fa-duotone fa-message"></i></span>
-                                    <textarea name="comments" id="comments" rows="4" class="form-control" placeholder="Enter your message*"></textarea>
+                <div class="col-lg-8">
+                    <form action="<?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="name">Name</label>
+                            <div class="col-sm-10">
+                                <div class="input-group input-group-merge">
+                                    <span id="basic-icon-default-fullname2" class="input-group-text"><i class="bx bx-user"></i></span>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Prakash Manat" aria-label="John Doe" aria-describedby="basic-icon-default-fullname2">
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-12 text-end">
-                                <input type="submit" id="submit" name="send" class="btn btn-primary" value="Send Message">
+                        <div class="row mb-3">
+                            <label class="col-sm-2 col-form-label" for="email">Email</label>
+                            <div class="col-sm-10">
+                                <div class="input-group input-group-merge">
+                                    <span class="input-group-text"><i class="bx bx-envelope"></i></span>
+                                    <input type="text" id="email" name="email" class="form-control" placeholder="prakashmanat@gmail.com" aria-describedby="email">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 form-label" for="phone">Phone No</label>
+                            <div class="col-sm-10">
+                                <div class="input-group input-group-merge">
+                                    <span id="basic-icon-default-phone2" class="input-group-text"><i class="bx bx-phone"></i></span>
+                                    <input type="text" id="phone" name="phone" class="form-control phone-mask" placeholder="987654323" aria-describedby="basic-icon-default-phone2">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label class="col-sm-2 form-label" for="message">Message</label>
+                            <div class="col-sm-10">
+                                <div class="input-group input-group-merge">
+                                    <span id="message" class="input-group-text"><i class="bx bx-comment"></i></span>
+                                    <textarea name="message" class="form-control" id="messagee" aria-describedby="message"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row justify-content-end">
+                            <div class="col-sm-10">
+                                <button type="submit" name="sendmessage" id="butsave" class="btn btn-primary">Send</button>
+
                             </div>
                         </div>
                     </form>
-                    <!--end form-->
+
                 </div>
-                <!--end col-->
             </div>
-            <!--end row-->
         </div>
-        <!--end container-->
     </section>
     <!--end contact-->
-
     <!-- START FOOTER -->
-    <?php include('includes/footer4index.php')  ?>
+    <?php include('includes/footer4index.php');  ?>
     <!-- END FOOTER -->
-    <!--start back-to-top-->
 
     <!-- Bootstrap bundle js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
 
     <!-- build:js assets/vendor/js/core.js -->
     <script src="assets/vendor/libs/jquery/jquery.js"></script>
@@ -462,6 +459,54 @@
     <script src="assets/vendor/libs/swiper/swiper.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/ui-carousel.js"></script>
+    <script src="assets/js/sweetalert2.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.all.min.js"></script>
+    <!-- endbuild -->
+
+    <script>
+        $(document).ready(function(e) {
+            $('#butsave').on('click', function(e) {
+                e.preventDefault();
+                var spinner = `<div class="spinner-border spinner-border-sm text-white" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>`;
+                var name = $('#name').val();
+                var email = $('#email').val();
+                var phone = $('#phone').val();
+                var message = $('#messagee').val();
+                if (name != "" && email != "" && phone != "" && message != "") {
+                    $.ajax({
+                        url: "ajax/save.php",
+                        type: "POST",
+                        data: {
+                            name: name,
+                            email: email,
+                            phone: phone,
+                            message: message
+                        },
+
+                        beforeSend: function() {
+                            $('#butsave').html(spinner);
+                        },
+
+                        cache: false,
+                        success: function() {
+                            setTimeout(function() {
+                                Swal.fire({
+                                    title: "Message Sent Successfully !",
+                                    icon: "success"
+                                });
+                                $('#butsave').html('Send');
+                            }, 1000);
+                        }
+                    });
+                } else {
+                    alert('Please fill all the field !');
+                }
+            });
+        });
+    </script>
+
 </body>
 
 </html>

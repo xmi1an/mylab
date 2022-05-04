@@ -23,4 +23,4 @@ $plus_counter = $counter + 1;
 $sql2         = "update visitor_counter set counts='$plus_counter'";
 $result2      = mysqli_query($con, $sql2);
 
-mysqli_close($con);
+// mysqli_close($con);

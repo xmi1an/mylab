@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar navbar-expand-lg fixed-top sticky">
+<nav id="navbar" class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand" href="#"><img src="img/mainlogo.png" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
