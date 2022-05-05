@@ -1,45 +1,11 @@
 <?php
 session_start();
-include_once('includes/config.php');
 error_reporting(0);
-// include_once('includes/config.php');
-require __DIR__ . '/vendor/autoload.php';
+//DB conncetion
+include_once('includes/config.php');
 
-// use Twilio\Rest\Client;
-
-// Send SMS Code for New Registration Test.
-$smsbody =  "
-Hey {$fname}! This SMS From My Lab 💉.
-
-We see that you made an appointment for your {$testtype} Test on {$timeslot}.
-
-Phebotomist will come to your home to perform the test.
-
-Till Keep yourself safe by staying at home 😷.
-  
-Check Your Test Status Here
-https://cowinlabs.in/patient-search-report.php
-    ";
-// $msgbody =
-//     // Your Account SID and Auth Token from twilio.com/console
-//     $sid = 'ACc495d0b8f0577c4253f409cb805ac88b';
-// $token = '7cbed27097ba7514fc579a46a349aea2';
-// $client = new Client($sid, $token);
-
-// // Use the client to do fun stuff like send text messages!
-// $client->messages->create(
-//     // the number you'd like to send the message to
-//     '+919016353443',
-//     [
-//         // A Twilio phone number you purchased at twilio.com/console
-//         'from' => '+12316245678',
-//         // the body of the text message you'd like to send
-//         'body' => "$smsbody"
-//     ]
-// );
-// End of Send SMS Code for New Registration Test.
-// }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 

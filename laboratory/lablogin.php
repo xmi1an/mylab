@@ -2,18 +2,37 @@
 session_start();
 include('../includes/config.php');
 
+require '../vendor/autoload.php';
+
+use Twilio\Rest\Client;
+
 if (isset($_POST['login'])) {
     $labusername = $_POST['labusername'];
     // $Password = md5($_POST['inputpwd']);
     $Password = $_POST['inputpwd'];
-    // echo ($labusername);
-    // echo ($Password);
+
     $result  = mysqli_query($con, "select * from labmaster where labusername='$labusername' && labpassword='$Password' ");
     $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    // var_dump($row);
-    // echo ($row['labid']);
+    $smsbody =  "
+Hey {$labusername}! . Thank You For Login With MyLab 💉.
+
+If It's not you, Please Change Your Password.
+
+Reset Password : https://mylab.in/resetpassword.php
+            ";
 
     if ($row > 0) {
+        $msgbody =
+            $sid = 'AC5c83bebd48fbf749d4012704ec891a8b';
+        $token = '694dbd4c6b01eaeb6dc1999351def3c7';
+        $client = new Client($sid, $token);
+        $client->messages->create(
+            '+919016353443',
+            [
+                'from' => '+19704699052',
+                'body' => "$smsbody"
+            ]
+        );
         $_SESSION['labid'] = $row['labid'];
         header('location:labdashboard.php');
     } else {

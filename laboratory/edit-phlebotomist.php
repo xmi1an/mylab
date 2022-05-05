@@ -1,10 +1,30 @@
-<?php
-session_start();
+<?php session_start();
+//DB conncetion
 include_once('../includes/config.php');
+//validating Session
 if (!isset($_SESSION['labid'])) {
     header('location:logout.php');
 } else {
+
+    //Code for updation
+    if (isset($_POST['update'])) {
+        $pid = intval($_GET['pid']);
+        //getting post values
+        $empid = $_POST['empid'];
+        $fname = $_POST['fullname'];
+        $mnumber = $_POST['mobilenumber'];
+        $query = "update tblphlebotomist set FullName='$fname',MobileNumber='$mnumber' where id='$pid'";
+        $result = mysqli_query($con, $query);
+        if ($result) {
+            echo '<script>alert("Phlebotomist record updated successfully.")</script>';
+            echo "<script>window.location.href='manage-phlebotomist.php'</script>";
+        } else {
+            echo "<script>alert('Something went wrong. Please try again.');</script>";
+            echo "<script>window.location.href='manage-phlebotomist.php'</script>";
+        }
+    }
 ?>
+
     <!DOCTYPE html>
     <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
@@ -12,7 +32,7 @@ if (!isset($_SESSION['labid'])) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Title</title>
+        <title>Edit Phlebotomist</title>
         <!-- BS -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <!-- /BS -->
@@ -55,10 +75,69 @@ if (!isset($_SESSION['labid'])) {
                         <!-- Content -->
                         <div class="container-xxl flex-grow-1 container-p-y">
                             <!-- Heading -->
-                            <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Heading</h4>
-                            <div class="row">
+                            <?php
+                            $pid = intval($_GET['pid']);
+                            $query = mysqli_query($con, "select * from tblphlebotomist where id='$pid'");
+                            $cnt = 1;
+                            while ($row = mysqli_fetch_array($query)) {
+                            ?>
+                                <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><?php echo $row['FullName']; ?>'s Profile</h4>
+                                <div class="row">
+                                    <div class="container-fluid">
 
-                            </div>
+                                        <!-- Page Heading -->
+
+                                        <!-- <h1 class="h3 mb-4 text-gray-800"><?php echo $row['FullName']; ?>'s Profile</h1> -->
+                                        <form name="editphlebotomist" method="post">
+                                            <div class="row">
+
+                                                <div class="col-lg-8">
+
+                                                    <!-- Basic Card Example -->
+                                                    <div class="card shadow mb-4">
+                                                        <div class="card-header py-3">
+                                                            <h6 class="m-0 font-weight-bold text-primary">Personal Information</h6>
+                                                        </div>
+                                                        <div class="card-body">
+
+                                                            <div class="form-group mt-2">
+                                                                <label>Registration Date: </label>
+
+                                                                <?php echo $row['RegDate']; ?>
+                                                            </div>
+
+                                                            <div class="form-group mt-2">
+                                                                <label>Employee Id</label>
+                                                                <input type="text" class="form-control" id="empid" name="empid" value="<?php echo $row['EmpID']; ?>">
+
+                                                            </div>
+
+                                                            <div class="form-group mt-2">
+                                                                <label>Full Name</label>
+                                                                <input type="text" class="form-control" id="fullname" name="fullname" placeholder="Enter your full name..." pattern="[A-Za-z ]+" title="letters only" value="<?php echo $row['FullName']; ?>" required="true">
+                                                            </div>
+                                                            <div class="form-group mt-2">
+                                                                <label>Mobile Number</label>
+                                                                <input type="text" class="form-control" id="mobilenumber" name="mobilenumber" placeholder="Please enter your mobile number" pattern="[0-9]{10}" title="10 numeric characters only" value="<?php echo $row['MobileNumber']; ?>" required="true">
+
+                                                            </div>
+
+
+
+                                                            <div class="form-group mt-4">
+                                                                <input type="submit" class="btn btn-primary btn-user btn-block" name="update" id="update" value="Update">
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </form>
+                                    <?php } ?>
+
+                                    </div>
+                                </div>
                         </div>
                     </div>
                     <!-- / Content -->

@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "efa96bcdc07159c840c053589ee9055f",
+    "content-hash": "e285808b5b518f7dfb3c8a486606e93a",
     "packages": [
         {
             "name": "twilio/sdk",
-            "version": "6.34.0",
+            "version": "6.37.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/twilio/twilio-php.git",
-                "reference": "336cc54d70a6e05f397ee25777d79482a4574efd"
+                "reference": "72d4053d9d9f727f5d5490daca24ba035e279c31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/336cc54d70a6e05f397ee25777d79482a4574efd",
-                "reference": "336cc54d70a6e05f397ee25777d79482a4574efd",
+                "url": "https://api.github.com/repos/twilio/twilio-php/zipball/72d4053d9d9f727f5d5490daca24ba035e279c31",
+                "reference": "72d4053d9d9f727f5d5490daca24ba035e279c31",
                 "shasum": ""
             },
             "require": {
@@ -55,9 +55,9 @@
             ],
             "support": {
                 "issues": "https://github.com/twilio/twilio-php/issues",
-                "source": "https://github.com/twilio/twilio-php/tree/6.34.0"
+                "source": "https://github.com/twilio/twilio-php/tree/6.37.0"
             },
-            "time": "2022-02-09T23:51:45+00:00"
+            "time": "2022-05-04T19:20:43+00:00"
         }
     ],
     "packages-dev": [],

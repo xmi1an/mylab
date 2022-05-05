@@ -1,3 +1,29 @@
+<?php
+// $curl = curl_init();
+
+// curl_setopt_array($curl, array(
+//     CURLOPT_URL => 'https://data.covid19india.org/v4/min/data.min.json',
+//     CURLOPT_RETURNTRANSFER => true,
+//     CURLOPT_ENCODING => '',
+//     CURLOPT_MAXREDIRS => 10,
+//     CURLOPT_TIMEOUT => 0,
+//     CURLOPT_FOLLOWLOCATION => true,
+//     CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+//     CURLOPT_CUSTOMREQUEST => 'GET',
+// ));
+
+// $response = curl_exec($curl);
+// $err = curl_error($curl);
+// $data = json_decode($response, true);
+
+// // Convert to Javascript Object
+// $data_json = json_encode($data);
+
+// curl_close($curl);
+// echo $response;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,12 +44,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet" />
     <!-- Icons. Uncomment required icon fonts -->
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-
     <!-- Core CSS -->
     <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
     <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
     <link rel="stylesheet" href="assets/css/demo.css" />
-
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
     <!-- Helpers -->
@@ -37,7 +61,7 @@
             <!-- sidebar -->
             <?php include('includes/sidebar.php') ?>
             <!-- sidebar -->
-            <!-- Layout container -->
+            <!-- Layout Container -->
             <div class="layout-page">
                 <!-- header -->
                 <?php include('includes/header.php') ?>
@@ -46,10 +70,77 @@
                 <div class="content-wrapper">
                     <!-- Content -->
                     <div class="container-xxl flex-grow-1 container-p-y">
-                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Live Covid Cases</h4>
+                        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">COVID-19 Cases in Gujarat</h4>
                         <!-- /Heading -->
                         <div class="row">
+                            <div class="col">
+                                <div class="card shadow-none bg-transparent border border-primary mb-3" style="width: 13rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Delta Case</h5>
+                                        <p class="card-text">
+                                            <span class="text-muted fw-light">Confirmed:</span> <span class="text-primary fw-bold">
+                                                <?php echo $data['GJ']['delta']['confirmed']; ?>
+                                            </span><br>
+                                            <span class="text-muted fw-light">Recovered:</span> <span class="text-primary fw-bold">
+                                                <?php echo $data['GJ']['delta']['recovered']; ?>
+                                            </span><br>
+                                            <span class="text-muted fw-light">Tested:</span> <span class="text-primary fw-bold">
+                                                <?php echo $data['GJ']['delta']['tested']; ?>
+                                            </span><br>
+                                            <span class="text-muted fw-light">Vaccinated1:</span> <span class="text-primary fw-bold">
+                                                <?php echo $data['GJ']['delta']['vaccinated1']; ?>
+                                            </span>
+                                        </p>
+                                    </div>
+                                </div>
 
+                            </div>
+
+                            <div class="col">
+                                <div class="card shadow-none bg-transparent border border-primary mb-3" style="width: 13rem;">
+
+                                    <div class="card-body">
+                                        <h5 class="card-title">Total Case</h5>
+                                        <p class="card-text">
+                                            <span class="text-muted fw-light">Confirmed:</span> <span class="text-primary fw-bold">
+                                                <?php echo $data['GJ']['total']['confirmed']; ?>
+                                            </span><br>
+                                            <span class="text-muted fw-light">Recovered:</span> <span class="text-primary fw-bold">
+                                                <?php echo $data['GJ']['total']['recovered']; ?>
+                                            </span><br>
+                                            <span class="text-muted fw-light">Tested:</span> <span class="text-primary fw-bold">
+                                                <?php echo $data['GJ']['total']['tested']; ?>
+                                            </span><br>
+                                            <span class="text-muted fw-light">Vaccinated1:</span> <span class="text-primary fw-bold">
+                                                <?php echo $data['GJ']['total']['vaccinated1']; ?>
+                                            </span>
+
+                                        </p>
+                                    </div>
+
+                                </div>
+                            </div> <!-- /col-lg-6 -->
+                        </div> <!-- /row -->
+                        <div class="row">
+                            <div class="card">
+                                <div class="table-responsive text-nowrap">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>confirmed</th>
+                                                <th>deceased</th>
+                                                <th>other</th>
+                                                <th>recovered</th>
+                                                <th>tested</th>
+                                                <th>vaccinated1</th>
+                                                <th>vaccinated2</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-border-bottom-0">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -69,24 +160,17 @@
     <!-- Overlay -->
     <div class="layout-overlay layout-menu-toggle"></div>
     </div>
-
-
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="assets/vendor/libs/jquery/jquery.js"></script>
     <script src="assets/vendor/libs/popper/popper.js"></script>
     <script src="assets/vendor/js/bootstrap.js"></script>
     <script src="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
     <script src="assets/vendor/js/menu.js"></script>
-    <!-- endbuild -->
-
     <!-- Main JS -->
     <script src="assets/js/main.js"></script>
-
     <!-- Page JS -->
     <script src="assets/js/dashboards-analytics.js"></script>
-
 </body>
 
 </html>

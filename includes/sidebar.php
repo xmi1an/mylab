@@ -1,11 +1,15 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme" data-bg-class="bg-menu-theme">
     <div class="app-brand demo">
-        <a href="<?php if (isset($_SESSION['labid'])) : echo ('../index.php');
+        <a href="<?php if (isset($_SESSION['labid'])) : echo ('../index.php ');
                     elseif (isset($_SESSION['aid'])) : echo ('../index.php');
                     else : echo ('index.php');
                     endif; ?>" class="app-brand-link">
-            </span>
-            <img src="./img\mainlogo2.png">
+            <?php
+            if (isset($_SESSION['labid'])) : echo ('<img src="../img\mainlogo2.png">');
+            elseif (isset($_SESSION['aid'])) : echo ('<img src="../img\mainlogo2.png">');
+            else : echo ('<img src="img\mainlogo2.png">');
+            endif;
+            ?>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-xl-none">
@@ -114,12 +118,12 @@
     <?php else : ?>
         <ul class="menu-inner py-1 ps ps--active-y">
             <!-- Dashboard -->
-            <li class="menu-item active">
+            <!-- <li class="menu-item active">
                 <a href="../dashboard.php" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-home-circle"></i>
                     <div data-i18n="Analytics">Dashboard</div>
                 </a>
-            </li>
+            </li> -->
             <!-- Test -->
             <li class="menu-header small text-uppercase"><span class="menu-header-text">Test</span></li>
             <li class="menu-item">
@@ -142,13 +146,13 @@
             </li>
             <!-- /Test -->
             <!-- Cases -->
-            <li class="menu-header small text-uppercase"><span class="menu-header-text">Cases</span></li>
+            <!-- <li class="menu-header small text-uppercase"><span class="menu-header-text">Cases</span></li>
             <li class="menu-item">
                 <a href="covidcases.php" class="menu-link">
                     <i class="menu-icon tf-icons bx bx-collection"></i>
                     <div data-i18n="Basic">Live Covid Cases</div>
                 </a>
-            </li>
+            </li> -->
         </ul>
     <?php endif; ?>
 </aside>

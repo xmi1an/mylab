@@ -83,7 +83,7 @@
     </section>
     <!--end Slider-->
     <!-- How it Works -->
-    <section class="section bg-light" id="howitworkds">
+    <section class="section bg-light mt-3" id="howitworkds">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-6">
