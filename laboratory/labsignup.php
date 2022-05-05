@@ -16,7 +16,7 @@ if (isset($_POST['signup'])) {
     $labpassword = $_POST['labpassword'];
     $query = "insert into labmaster(labname, labcity, labaddress,labmobile, labemail, labusername, labpassword) values('$labname','$labcity','$labaddress','$labmobile', '$labemail','$labusername', '$labpassword')";
     $result = mysqli_query($con, $query);
-    
+
     $smsbody =  "
 Hey {$labname}! . Thank You For Registering With MyLab 💉.
 
@@ -27,8 +27,8 @@ Login Here : https://mylab.in/login.php
 
     if ($result) {
         $msgbody =
-            $sid = 'AC5c83bebd48fbf749d4012704ec891a8b';
-        $token = '694dbd4c6b01eaeb6dc1999351def3c7';
+            $sid = '#';
+        $token = '#';
         $client = new Client($sid, $token);
         $client->messages->create(
             '+919016353443',

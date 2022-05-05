@@ -42,8 +42,8 @@ if ($result) {
     // Send SMS Code for New Registration Test.
     $msgbody =
         // Your Account SID and Auth Token from twilio.com/console
-        $sid = 'AC5c83bebd48fbf749d4012704ec891a8b';
-    $token = '694dbd4c6b01eaeb6dc1999351def3c7';
+        $sid = '#';
+    $token = '#';
     $client = new Client($sid, $token);
 
     // Use the client to do fun stuff like send text messages!
